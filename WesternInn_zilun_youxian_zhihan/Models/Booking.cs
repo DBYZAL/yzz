@@ -5,6 +5,7 @@ namespace WesternInn_zilun_youxian_zhihan.Models
     public class Booking
     {
         public int ID { get; set; }
+
         public int RoomID { get; set; }
 
         // foreign key

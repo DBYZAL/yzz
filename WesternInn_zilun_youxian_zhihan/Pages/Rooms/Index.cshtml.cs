@@ -20,13 +20,25 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Rooms
         }
 
         public IList<Room> Room { get;set; } = default!;
-
+        [BindProperty(SupportsGet = true)]
+        public int SearchInt { get; set; } = int.Empty;
         public async Task OnGetAsync()
         {
-            if (_context.Room != null)
+            var rooms = (IQueryable<Room>)_context.Room;
+
+            if (!int.IsNullOrEmpty(SearchInt))
             {
-                Room = await _context.Room.ToListAsync();
+                rooms = rooms.Where(s => s.BedCount.Contains(SearchInt));
+            }
+
+            if (rooms != null)
+            {
+                Room = await rooms.ToListAsync();
             }
         }
+
+
+        public string SearchString { get; set; } = string.Empty;
+
     }
 }

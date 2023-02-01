@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,6 +11,7 @@ using WesternInn_zilun_youxian_zhihan.Models;
 
 namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
 {
+    [Authorize(Roles = "Guests")]
     public class CreateModel : PageModel
     {
         private readonly WesternInn_zilun_youxian_zhihan.Data.ApplicationDbContext _context;
@@ -35,8 +37,9 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
         {
           if (!ModelState.IsValid || _context.Booking == null || Booking == null)
             {
-                return Page();
+                return Page();.
             }
+
 
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();
