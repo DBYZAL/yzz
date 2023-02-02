@@ -4,7 +4,9 @@ What are the usernames and passwords for the guests and administrators respectiv
 
 administrator： UserEmail:admin@westerninn.com, UserPassword:P@ssw0rd
 
-guest： UserEmail:linda@wsu.edu UserPassword:P@ssw0rd
+guests： 
+UserEmail:linda@wsu.edu UserPassword:P@ssW0rd
+UserEmail:linda@wsu.edu UserPassword:P@ssw0rd
 
 o Who are the group members? Youxian Han, Zhihan Qian, Zilun Wang
 
