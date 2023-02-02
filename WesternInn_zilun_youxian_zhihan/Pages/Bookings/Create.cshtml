@@ -6,9 +6,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Booking</h4>
+<h1>Book a Room</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,11 +15,18 @@
             <div class="form-group">
                 <label asp-for="Booking.RoomID" class="control-label"></label>
                 <select asp-for="Booking.RoomID" class ="form-control" asp-items="ViewBag.RoomID"></select>
+                <span asp-validation-for="Booking.RoomId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Booking.GuestEmail" class="control-label"></label>
-                <select asp-for="Booking.GuestEmail" class ="form-control" asp-items="ViewBag.GuestEmail"></select>
+
+            @if(User.IsInRole("Administrator"))
+            {
+                <div class="form-group">
+                <label asp-for="Booking.TheGuest.FullName" class="control-label"></label>
+                <select asp-for="Booking.GuestEmail" class ="form-control" asp-items="ViewBag.GuestId"></select>
+                <span asp-validation-for="Booking.GuestEmail" class="text-danger"></span>
             </div>
+            }
+
             <div class="form-group">
                 <label asp-for="Booking.CheckIn" class="control-label"></label>
                 <input asp-for="Booking.CheckIn" class="form-control" />
@@ -32,21 +37,34 @@
                 <input asp-for="Booking.CheckOut" class="form-control" />
                 <span asp-validation-for="Booking.CheckOut" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                @* <label asp-for="Booking.Cost" class="control-label"></label>*@
-                @* <input asp-for="Booking.Cost" class="form-control" />*@
-                <input type ="hidden" asp-for="Booking.Cost" value="0" class="form-control"/>  @*edward *@
-                @*<span asp-validation-for="Booking.Cost" class="text-danger"></span>*@
+            @if(User.IsInRole("Administrator"))
+            {
+                <div class="form-group">
+                    <label asp-for="Booking.Cost" class="control-label"></label>
+                    <input asp-for="Booking.Cost" class="form-control" />
+                    <span asp-validation-for="Booking.Cost" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group m-2">
+                <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <input type="hidden" asp-for="Booking.Cost" />
+            @if(User.IsInRole("Guests"))
+            {
+                <input type="hidden" asp-for="Booking.GuestEmail" />
+            }
+
         </form>
     </div>
 </div>
 
+
+<h3>
+    @Model.Message
+</h3>
+
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">My Bookings</a>
 </div>
 
 @section Scripts {

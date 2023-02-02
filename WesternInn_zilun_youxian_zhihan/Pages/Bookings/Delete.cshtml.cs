@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,8 @@ using WesternInn_zilun_youxian_zhihan.Models;
 
 namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
 {
+    [Authorize(Roles = "Administrator")]
+
     public class DeleteModel : PageModel
     {
         private readonly WesternInn_zilun_youxian_zhihan.Data.ApplicationDbContext _context;
@@ -29,7 +33,7 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
                 return NotFound();
             }
 
-            var booking = await _context.Booking.FirstOrDefaultAsync(m => m.ID == id);
+            var booking = await _context.Booking.Include(b => b.TheRooms).Include(b => b.TheGuests).FirstOrDefaultAsync(m => m.ID == id);
 
             if (booking == null)
             {
