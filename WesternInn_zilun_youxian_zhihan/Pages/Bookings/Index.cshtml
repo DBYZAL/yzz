@@ -20,13 +20,13 @@ else if(User.IsInRole("Guests"))
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Booking[0].TheGuest.Surname)
+                @Html.DisplayNameFor(model => model.Booking[0].TheGuests.Surname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Booking[0].TheGuest.GivenName)
+                @Html.DisplayNameFor(model => model.Booking[0].TheGuests.GivenName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Booking[0].RoomId)
+                @Html.DisplayNameFor(model => model.Booking[0].RoomID)
             </th>
             <th>
                 <a asp-page="Index" asp-route-sortOrder="@ViewData["NextCheckInDateOrder"]">
@@ -75,10 +75,10 @@ else if(User.IsInRole("Guests"))
 @foreach (var item in Model.Booking) {
         <tr>
             <td>
-                @Html.DisplayFor(m => item.TheGuest.Surname)
+                @Html.DisplayFor(m => item.TheGuests.Surname)
             </td>
             <td>
-                @Html.DisplayFor(m => item.TheGuest.GivenName)
+                @Html.DisplayFor(m => item.TheGuests.GivenName)
             </td>
             <td>
                 @Html.DisplayFor(m => item.RoomID)
@@ -97,8 +97,8 @@ else if(User.IsInRole("Guests"))
                 @if(User.IsInRole("Administrator"))
                 {
                     <div>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                     </div>
                 }
             </td>

@@ -13,38 +13,38 @@
     <h4>Booking</h4>
     <hr />
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.TheRoom.ID)
+            @Html.DisplayNameFor(model => model.Booking.TheRooms.ID)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.TheRoom.ID)
+            @Html.DisplayFor(model => model.Booking.TheRooms.ID)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.TheRoom.Level)
+            @Html.DisplayNameFor(model => model.Booking.TheRooms.Level)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.TheRoom.Level)
+            @Html.DisplayFor(model => model.Booking.TheRooms.Level)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.TheRoom.BedCount)
+            @Html.DisplayNameFor(model => model.Booking.TheRooms.BedCount)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.TheRoom.BedCount)
+            @Html.DisplayFor(model => model.Booking.TheRooms.BedCount)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.TheGuest.Surname)
+            @Html.DisplayNameFor(model => model.Booking.TheGuests.Surname)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.TheGuest.Surname)
+            @Html.DisplayFor(model => model.Booking.TheGuests.Surname)
         </dd>
 
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.TheGuest.GivenName)
+            @Html.DisplayNameFor(model => model.Booking.TheGuests.GivenName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Booking.TheGuest.GivenName)
+            @Html.DisplayFor(model => model.Booking.TheGuests.GivenName)
         </dd>
 
         <dt class="col-sm-2">
@@ -70,7 +70,7 @@
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Booking.Id" />
+        <input type="hidden" asp-for="Booking.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>
