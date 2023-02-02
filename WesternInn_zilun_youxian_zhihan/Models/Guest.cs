@@ -24,6 +24,10 @@ namespace WesternInn_zilun_youxian_zhihan.Models
         [RegularExpression(@"[a-zA-Z'-]{2,20}", ErrorMessage = "can only consists of English letters, hyphen and apostrophe, and has a length between 2 characters and 20 characters.")]
         public string GivenName { get; set; } = string.Empty;
 
+        [NotMapped]
+        [Display(Name = "The Guest's Full Name")]
+        public string FullName => $"{Surname}, {GivenName}";
+
         [Required]
         [DataType(DataType.PostalCode)]
         [RegularExpression(@"[0-9]{4}", ErrorMessage = "required and consists of exactly 4 digits")]

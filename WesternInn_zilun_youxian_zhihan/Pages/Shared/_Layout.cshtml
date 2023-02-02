@@ -28,13 +28,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Guests/MyDetails">My Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Rooms/Index">Search Rooms</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Rooms/Search">Search Rooms</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Bookings/Index">Book A Room</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Bookings/Create">Book A Room</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="">My Bookings</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Bookings/Index">My Bookings</a>
                             </li>
                         }
                         @if (User.IsInRole("Administrators"))
@@ -43,7 +43,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Bookings/Index">Manage Bookings</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="">Statistics</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Bookings/Statistics">Statistics</a>
                             </li>
                         }
                         <li class="nav-item">
