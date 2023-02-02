@@ -37,7 +37,7 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
         {
           if (!ModelState.IsValid || _context.Booking == null || Booking == null)
             {
-                return Page();.
+                return Page();
             }
 
 

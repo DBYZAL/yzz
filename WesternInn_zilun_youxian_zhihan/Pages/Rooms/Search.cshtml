@@ -1,5 +1,5 @@
 ﻿@page
-@model WesternInn_zilun_youxian_zhihan.Pages.Rooms.SearchRoomModel
+@model WesternInn_zilun_youxian_zhihan.Pages.Rooms.SearchModel
 @{
 }
 <h4>Search Room</h4>
@@ -40,7 +40,7 @@
     <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m => Model.Rooms.First().Id)</th>
+            <th>@Html.DisplayNameFor(m => Model.Rooms.First().ID)</th>
             <th>@Html.DisplayNameFor(m => Model.Rooms.First().BedCount)</th>
             <th>@Html.DisplayNameFor(m => Model.Rooms.First().Level)</th>
             <th>@Html.DisplayNameFor(m => Model.Rooms.First().Price)</th>
@@ -51,8 +51,8 @@
         {
             <tr>
                     <td>
-                        <a asp-page="/Bookings/Create" asp-route-searchedRoomId="@room.Id" asp-route-checkInDate="@Model.Room.CheckInDate" asp-route-checkOutDate="@Model.Room.CheckOutDate">
-                            @Html.DisplayFor(m => room.Id)
+                        <a asp-page="/Bookings/Create" asp-route-searchedRoomId="@room.ID" asp-route-checkInDate="@Model.Room.CheckInDate" asp-route-checkOutDate="@Model.Room.CheckOutDate">
+                            @Html.DisplayFor(m => room.ID)
                         </a>
                         
                     </td>
