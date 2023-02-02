@@ -1,0 +1,55 @@
+﻿@page
+@model WesternInn_zilun_youxian_zhihan.Pages.Bookings.StatisticsModel
+@{
+}
+<h2>Guest distribution with respect to Post Code</h2>
+
+<table class="distibution-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.GuestDistribution[0].PostCode)</th>
+            <th>@Html.DisplayNameFor(model => model.GuestDistribution[0].NumberOfGuests)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var stat in Model.GuestDistribution)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => stat.PostCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => stat.NumberOfGuests)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h2>Booking distribution with respect to Rooms</h2>
+
+<table class="distibution-table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.BookingDistribution[0].RoomID)</th>
+            <th>@Html.DisplayNameFor(model => model.BookingDistribution[0].NumberOfBookings)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var stat in Model.BookingDistribution)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => stat.RoomID)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => stat.NumberOfBookings)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

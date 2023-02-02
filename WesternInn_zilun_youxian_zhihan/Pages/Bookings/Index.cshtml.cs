@@ -73,7 +73,7 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
                         IsCostDecending = true;
                         break;
                     default:
-                        bookings = bookings.OrderBy(b => b.TheGuest.GivenName);
+                        bookings = bookings.OrderBy(b => b.TheGuests.GivenName);
                         break;
                 }
 
@@ -81,9 +81,9 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
                 {
                     Booking = await bookings
                                         .AsNoTracking()
-                                        .Include(b => b.TheGuest)
-                                        .Include(b => b.TheRoom)
-                                        .Where(b => b.TheGuest.Email == User.Identity.Name)
+                                        .Include(b => b.TheGuests)
+                                        .Include(b => b.TheRooms)
+                                        .Where(b => b.TheGuests.Email == User.Identity.Name)
                                         .ToListAsync();
 
 
@@ -92,8 +92,8 @@ namespace WesternInn_zilun_youxian_zhihan.Pages.Bookings
                 {
                     Booking = await bookings
                                         .AsNoTracking()
-                                        .Include(b => b.TheGuest)
-                                        .Include(b => b.TheRoom)
+                                        .Include(b => b.TheGuests)
+                                        .Include(b => b.TheRooms)
                                         .ToListAsync();
                 }
 
